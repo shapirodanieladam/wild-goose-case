@@ -26,7 +26,10 @@ repositories {
 
 dependencies {
     implementation(libs.kotlin.stdlib)
+
     implementation(libs.clikt)
+    implementation(libs.kotter)
+    implementation(libs.kotterxTestSupport)
     implementation(libs.mordant)
 
     testImplementation(libs.junit.jupiter.api)
