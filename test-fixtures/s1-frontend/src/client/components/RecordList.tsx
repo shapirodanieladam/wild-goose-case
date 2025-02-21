@@ -31,29 +31,25 @@ export function RecordList() {
       <h1>Records Manager</h1>
       
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Name
-            <input
-              type="text"
-              value={newName}
-              onChange={(e) => setNewName(e.target.value)}
-              placeholder="Enter record name"
-              required
-            />
-          </label>
+        <div className="form-field">
+          <label>Name</label>
+          <input
+            type="text"
+            value={newName}
+            onChange={(e) => setNewName(e.target.value)}
+            placeholder="Enter record name"
+            required
+          />
         </div>
-        <div>
-          <label>
-            Value
-            <input
-              type="text"
-              value={newValue}
-              onChange={(e) => setNewValue(e.target.value)}
-              placeholder="Enter record value"
-              required
-            />
-          </label>
+        <div className="form-field">
+          <label>Value</label>
+          <input
+            type="text"
+            value={newValue}
+            onChange={(e) => setNewValue(e.target.value)}
+            placeholder="Enter record value"
+            required
+          />
         </div>
         <div className="form-actions">
           <button type="submit">Add Record</button>
