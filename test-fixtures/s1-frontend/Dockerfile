@@ -24,4 +24,9 @@ ENV HOST=0.0.0.0
 
 # Start the development server
 WORKDIR /app/s1-frontend
+
+# Add a health check for the dev server
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:5173 || exit 1
+
 CMD ["npm", "run", "dev"]
