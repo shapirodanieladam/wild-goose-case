@@ -6,24 +6,29 @@ export function RecordList() {
   const { records, loading, error, createRecord, refreshRecords } = useRecords();
   const [newName, setNewName] = useState('');
   const [newValue, setNewValue] = useState('');
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
     try {
+      console.log('Submitting new record:', { name: newName, value: newValue });
       await createRecord(newName, newValue);
       setNewName('');
       setNewValue('');
+      await refreshRecords();
     } catch (err) {
       console.error('Failed to create record:', err);
+      setSubmitError(err instanceof Error ? err.message : 'Failed to create record');
     }
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <div>Loading records...</div>;
+  if (error) return <div className="error">Error: {error}</div>;
 
   return (
     <div>
-      <h1>Records</h1>
+      <h1>Records Manager</h1>
       
       <form onSubmit={handleSubmit}>
         <div>
@@ -33,6 +38,7 @@ export function RecordList() {
               type="text"
               value={newName}
               onChange={(e) => setNewName(e.target.value)}
+              placeholder="Enter record name"
               required
             />
           </label>
@@ -44,23 +50,30 @@ export function RecordList() {
               type="text"
               value={newValue}
               onChange={(e) => setNewValue(e.target.value)}
+              placeholder="Enter record value"
               required
             />
           </label>
         </div>
-        <button type="submit">Add Record</button>
+        <div>
+          <button type="submit">Add Record</button>
+          <button type="button" onClick={refreshRecords}>Refresh List</button>
+        </div>
+        {submitError && <div className="error">{submitError}</div>}
       </form>
 
-      <button onClick={refreshRecords}>Refresh</button>
-      
       <ul>
-        {records.map((record: DataRecord) => (
-          <li key={record.id}>
-            <strong>{record.name}</strong>: {record.value}
-            <br />
-            <small>Created: {new Date(record.createdAt).toLocaleString()}</small>
-          </li>
-        ))}
+        {records.length === 0 ? (
+          <li>No records found. Create one above!</li>
+        ) : (
+          records.map((record: DataRecord) => (
+            <li key={record.id}>
+              <strong>{record.name}</strong>: {record.value}
+              <br />
+              <small>Created: {new Date(record.createdAt).toLocaleString()}</small>
+            </li>
+          ))
+        )}
       </ul>
     </div>
   );

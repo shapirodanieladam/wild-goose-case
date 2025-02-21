@@ -7,6 +7,15 @@ services:
       dockerfile: s3-data/Dockerfile
     ports:
       - "9090:9090"
+    develop:
+      watch:
+        - action: sync
+          path: ./s3-data/src
+          target: /app/s3-data/src
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./s3-data/package.json
 
   s2-api:
     build:
@@ -18,6 +27,15 @@ services:
       - S3_URL=http://s3-data:9090
     depends_on:
       - s3-data
+    develop:
+      watch:
+        - action: sync
+          path: ./s2-api/src
+          target: /app/s2-api/src
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./s2-api/package.json
 
   s1-frontend:
     build:
@@ -29,3 +47,17 @@ services:
       - S2_URL=http://s2-api:8080
     depends_on:
       - s2-api
+    develop:
+      watch:
+        - action: sync
+          path: ./s1-frontend/src/client
+          target: /app/s1-frontend/src/client
+          ignore:
+            - node_modules/
+        - action: sync
+          path: ./s1-frontend/src/server
+          target: /app/s1-frontend/src/server
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: ./s1-frontend/package.json

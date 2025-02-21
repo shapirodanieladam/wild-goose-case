@@ -7,12 +7,13 @@
     "build:server": "tsc -p tsconfig.server.json",
     "start": "node dist/server/index.js",
     "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
-    "dev:client": "vite",
-    "dev:server": "ts-node-dev --respawn src/server/index.ts",
+    "dev:client": "vite --host 0.0.0.0",
+    "dev:server": "ts-node-dev --respawn --transpile-only --notify=false --exit-child src/server/index.ts",
     "clean": "rm -rf dist"
   },
   "dependencies": {
     "@test-fixtures/shared": "1.0.0",
+    "axios": "^1.6.7",
     "express": "^4.18.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
