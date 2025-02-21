@@ -33,7 +33,7 @@ export function RecordList() {
       <form onSubmit={handleSubmit}>
         <div>
           <label>
-            Name:
+            Name
             <input
               type="text"
               value={newName}
@@ -45,7 +45,7 @@ export function RecordList() {
         </div>
         <div>
           <label>
-            Value:
+            Value
             <input
               type="text"
               value={newValue}
@@ -55,7 +55,7 @@ export function RecordList() {
             />
           </label>
         </div>
-        <div>
+        <div className="form-actions">
           <button type="submit">Add Record</button>
           <button type="button" onClick={refreshRecords}>Refresh List</button>
         </div>

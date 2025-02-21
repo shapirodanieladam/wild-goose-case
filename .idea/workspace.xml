@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9dd113b2-b601-48e9-a0a6-b6058ceb6292" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-fixtures/s1-frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/test-fixtures/s1-frontend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-fixtures/s1-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/test-fixtures/s1-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-fixtures/s1-frontend/src/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/test-fixtures/s1-frontend/src/client/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-fixtures/s1-frontend/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test-fixtures/s1-frontend/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-fixtures/s1-frontend/src/client/components/RecordList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/test-fixtures/s1-frontend/src/client/components/RecordList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-fixtures/s1-frontend/src/client/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/test-fixtures/s1-frontend/src/client/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-fixtures/s1-frontend/src/server/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-fixtures/s1-frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/test-fixtures/s1-frontend/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +140,7 @@
       <workItem from="1740144124368" duration="1975000" />
       <workItem from="1740146110271" duration="56000" />
       <workItem from="1740146170936" duration="214000" />
-      <workItem from="1740146389763" duration="6531000" />
+      <workItem from="1740146389763" duration="7065000" />
     </task>
     <servers />
   </component>
