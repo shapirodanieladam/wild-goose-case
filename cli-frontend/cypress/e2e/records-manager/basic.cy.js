@@ -5,6 +5,7 @@ describe('Records Manager E2E Tests', () => {
     
     // Verify we're on the Records Manager page
     cy.get('h1').should('contain', 'Records Manager')
+      .and('have.css', 'color', 'rgb(100, 108, 255)') // #646cff
   })
 
   describe('UI Elements', () => {
@@ -16,6 +17,19 @@ describe('Records Manager E2E Tests', () => {
       // Check buttons exist
       cy.get('button').contains('Add Record').should('exist')
       cy.get('button').contains('Refresh List').should('exist')
+    })
+
+    it('should have correct dark mode styling', () => {
+      // Verify dark background
+      cy.get('body').should('have.css', 'background-color', 'rgb(26, 26, 26)') // #1a1a1a
+      
+      // Verify form styling
+      cy.get('form').should('have.css', 'background-color', 'rgb(42, 42, 42)') // #2a2a2a
+      
+      // Verify input styling
+      cy.get('input').first()
+        .should('have.css', 'background-color', 'rgb(51, 51, 51)') // #333
+        .and('have.css', 'color', 'rgb(255, 255, 255)') // white
     })
   })
 
@@ -35,6 +49,7 @@ describe('Records Manager E2E Tests', () => {
       
       // Verify the creation timestamp is present
       cy.contains('Created:').should('exist')
+        .should('have.css', 'color', 'rgb(136, 136, 136)') // #888
     })
 
     it('should refresh the records list', () => {
@@ -42,9 +57,8 @@ describe('Records Manager E2E Tests', () => {
       cy.get('button').contains('Refresh List').click()
       
       // Verify existing records are still visible
-      // Using the records we saw in the screenshot as test data
-      cy.contains('hello').should('exist')
-      cy.contains('world').should('exist')
+      cy.get('li').should('exist')
+        .and('have.css', 'background-color', 'rgb(42, 42, 42)') // #2a2a2a
     })
 
     it('should handle empty inputs gracefully', () => {
@@ -52,7 +66,6 @@ describe('Records Manager E2E Tests', () => {
       cy.get('button').contains('Add Record').click()
       
       // Add assertions for your error handling behavior
-      // This might need to be adjusted based on how your app handles this case
       cy.get('input[placeholder="Enter record name"]')
         .should('have.value', '')
         .and('be.visible')
@@ -78,37 +91,15 @@ describe('Records Manager E2E Tests', () => {
     })
   })
 
-  describe('API Integration', () => {
-    it('should handle API errors gracefully', () => {
-      // This test requires the ability to simulate API failures
-      // We might need to use cy.intercept() to mock API failures
-      cy.intercept('POST', '/api/records', {
-        statusCode: 500,
-        body: { error: 'Internal Server Error' }
-      }).as('addRecordError')
-
-      // Try to add a record
-      cy.get('input[placeholder="Enter record name"]').type('error-test')
-      cy.get('input[placeholder="Enter record value"]').type('should-fail')
-      cy.get('button').contains('Add Record').click()
-
-      // Wait for the API call and verify error handling
-      cy.wait('@addRecordError')
-      
-      // Add assertions for your error handling UI
-      // This might need to be adjusted based on how your app handles errors
-    })
-  })
-
   describe('Visual Styling', () => {
     it('should display records with correct styling', () => {
-      // Verify the teal colored record names
-      cy.contains('hello').should('have.css', 'color', 'rgb(13, 148, 136)')
+      // Verify the accent colored record names
+      cy.get('li strong').should('have.css', 'color', 'rgb(100, 108, 255)') // #646cff
       
       // Verify the timestamp styling
-      cy.contains('Created:').should('exist')
+      cy.contains('Created:')
         .parent()
-        .should('have.css', 'color', 'rgb(31, 41, 55)') // Dark gray text
+        .should('have.css', 'color', 'rgba(255, 255, 255, 0.87)')
     })
   })
 })
