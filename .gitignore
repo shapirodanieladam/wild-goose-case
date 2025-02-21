@@ -31,3 +31,6 @@ Thumbs.db
 /gradlew.bat
 /gradle/wrapper/
 /.hermit
+
+# Local devenv / testing
+scratch

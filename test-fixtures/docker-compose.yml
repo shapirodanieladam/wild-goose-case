@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  s3-data:
+    build:
+      context: .
+      dockerfile: s3-data/Dockerfile
+    ports:
+      - "9090:9090"
+
+  s2-api:
+    build:
+      context: .
+      dockerfile: s2-api/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - S3_URL=http://s3-data:9090
+    depends_on:
+      - s3-data

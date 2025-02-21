@@ -10,13 +10,13 @@ COPY shared/tsconfig.json ./shared/
 COPY shared/src ./shared/src
 
 # Copy service files
-COPY s3-data/package*.json ./s3-data/
-COPY s3-data/tsconfig.json ./s3-data/
-COPY s3-data/src ./s3-data/src
+COPY s2-api/package*.json ./s2-api/
+COPY s2-api/tsconfig.json ./s2-api/
+COPY s2-api/src ./s2-api/src
 
 # Install and build
 RUN npm install -w shared && npm run build -w shared
-RUN npm install -w s3-data && npm run build -w s3-data
+RUN npm install -w s2-api && npm run build -w s2-api
 
 # Production image
 FROM node:20-slim
@@ -27,14 +27,14 @@ WORKDIR /app
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/shared/package*.json ./shared/
 COPY --from=builder /app/shared/dist ./shared/dist
-COPY --from=builder /app/s3-data/package*.json ./s3-data/
-COPY --from=builder /app/s3-data/dist ./s3-data/dist
+COPY --from=builder /app/s2-api/package*.json ./s2-api/
+COPY --from=builder /app/s2-api/dist ./s2-api/dist
 
 # Install production dependencies
 RUN npm install --omit=dev
 
 # Expose port
-EXPOSE 9090
+EXPOSE 8080
 
 # Start service
-CMD ["node", "s3-data/dist/index.js"]
+CMD ["node", "s2-api/dist/index.js"]

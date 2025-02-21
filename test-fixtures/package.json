@@ -1,0 +1,13 @@
+{
+  "name": "test-fixtures",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "s3-data",
+    "s2-api"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "clean": "npm run clean --workspaces"
+  }
+}
