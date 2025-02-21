@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dd113b2-b601-48e9-a0a6-b6058ceb6292" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-fixtures/s3-data/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/test-fixtures/s3-data/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-fixtures/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test-fixtures/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-fixtures/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/test-fixtures/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +126,7 @@
       <workItem from="1740144124368" duration="1975000" />
       <workItem from="1740146110271" duration="56000" />
       <workItem from="1740146170936" duration="214000" />
-      <workItem from="1740146389763" duration="2041000" />
+      <workItem from="1740146389763" duration="2737000" />
     </task>
     <servers />
   </component>

@@ -3,8 +3,9 @@
   "private": true,
   "workspaces": [
     "shared",
-    "s3-data",
-    "s2-api"
+    "s1-frontend",
+    "s2-api",
+    "s3-data"
   ],
   "scripts": {
     "build": "npm run build --workspaces",

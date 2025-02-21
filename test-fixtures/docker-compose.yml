@@ -18,3 +18,14 @@ services:
       - S3_URL=http://s3-data:9090
     depends_on:
       - s3-data
+
+  s1-frontend:
+    build:
+      context: .
+      dockerfile: s1-frontend/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - S2_URL=http://s2-api:8080
+    depends_on:
+      - s2-api
