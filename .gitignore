@@ -1,0 +1,33 @@
+# Kotlin/Gradle
+.gradle/
+build/
+out/
+
+# TypeScript/Node.js
+node_modules/
+dist/
+*.js.map
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+workspace.code-workspace
+
+# OS
+*.DS_Store
+Thumbs.db
+
+# Hermit/Gradle
+/gradlew
+/gradlew.bat
+/gradle/wrapper/
+/.hermit

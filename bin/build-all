@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "Building all projects..."
+
+# Build Kotlin backend
+echo "Building Kotlin backend..."
+cd cli-backend
+gradle build
+cd ..
+
+# Build TypeScript frontend
+echo "Building TypeScript frontend..."
+cd cli-frontend
+npm install
+npm run build
+cd ..
+
+# Build Python orchestrator
+echo "Building Python orchestrator..."
+cd cli-orchestrator
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+cd ..
+
+echo "Build complete!"
