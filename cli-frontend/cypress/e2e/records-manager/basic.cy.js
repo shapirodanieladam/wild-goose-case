@@ -1,11 +1,11 @@
 describe('Records Manager E2E Tests', () => {
   beforeEach(() => {
-    // Visit the Records Manager application
+    // Clear localStorage and set initial theme
+    cy.window().then((win) => {
+      win.localStorage.clear()
+    })
     cy.visit('/')
-    
-    // Verify we're on the Records Manager page
     cy.get('h1').should('contain', 'Records Manager')
-      .and('have.css', 'color', 'rgb(100, 108, 255)') // #646cff
   })
 
   describe('UI Elements', () => {
@@ -19,17 +19,27 @@ describe('Records Manager E2E Tests', () => {
       cy.get('button').contains('Refresh List').should('exist')
     })
 
-    it('should have correct dark mode styling', () => {
-      // Verify dark background
-      cy.get('body').should('have.css', 'background-color', 'rgb(26, 26, 26)') // #1a1a1a
+    it('should have appropriate theme styling', () => {
+      // Verify theme class is present on root element
+      cy.get('div.theme-dark').should('exist')
+      cy.get('div.theme-light').should('not.exist')
       
-      // Verify form styling
-      cy.get('form').should('have.css', 'background-color', 'rgb(42, 42, 42)') // #2a2a2a
+      // Verify theme toggle exists and is accessible
+      cy.get('button.theme-toggle')
+        .should('exist')
+        .and('have.attr', 'aria-label', 'Switch to light theme')
       
-      // Verify input styling
-      cy.get('input').first()
-        .should('have.css', 'background-color', 'rgb(51, 51, 51)') // #333
-        .and('have.css', 'color', 'rgb(255, 255, 255)') // white
+      // Toggle theme and verify changes
+      cy.get('button.theme-toggle').click()
+      cy.get('div.theme-light').should('exist')
+      cy.get('div.theme-dark').should('not.exist')
+      cy.get('button.theme-toggle')
+        .should('have.attr', 'aria-label', 'Switch to dark theme')
+        
+      // Return to dark theme
+      cy.get('button.theme-toggle').click()
+      cy.get('div.theme-dark').should('exist')
+      cy.get('div.theme-light').should('not.exist')
     })
   })
 
@@ -49,7 +59,6 @@ describe('Records Manager E2E Tests', () => {
       
       // Verify the creation timestamp is present
       cy.contains('Created:').should('exist')
-        .should('have.css', 'color', 'rgb(136, 136, 136)') // #888
     })
 
     it('should refresh the records list', () => {
@@ -58,7 +67,6 @@ describe('Records Manager E2E Tests', () => {
       
       // Verify existing records are still visible
       cy.get('li').should('exist')
-        .and('have.css', 'background-color', 'rgb(42, 42, 42)') // #2a2a2a
     })
 
     it('should handle empty inputs gracefully', () => {
@@ -91,15 +99,70 @@ describe('Records Manager E2E Tests', () => {
     })
   })
 
-  describe('Visual Styling', () => {
-    it('should display records with correct styling', () => {
-      // Verify the accent colored record names
-      cy.get('li strong').should('have.css', 'color', 'rgb(100, 108, 255)') // #646cff
+  describe('Theme Persistence', () => {
+    it('should maintain theme selection across interactions', () => {
+      // Set initial theme to light via localStorage
+      cy.window().then((win) => {
+        win.localStorage.setItem('app-theme', 'light')
+        cy.reload()
+      })
+
+      // Verify light theme is active
+      cy.get('div.theme-light').should('exist')
+      cy.get('div.theme-dark').should('not.exist')
       
-      // Verify the timestamp styling
-      cy.contains('Created:')
-        .parent()
-        .should('have.css', 'color', 'rgba(255, 255, 255, 0.87)')
+      // Add a record
+      cy.get('input[placeholder="Enter record name"]').type('theme-test')
+      cy.get('input[placeholder="Enter record value"]').type('test-value')
+      cy.get('button').contains('Add Record').click()
+      
+      // Verify theme persists after interaction
+      cy.get('div.theme-light').should('exist')
+      cy.get('div.theme-dark').should('not.exist')
+      
+      // Verify localStorage has the correct value
+      cy.window().then((win) => {
+        const theme = win.localStorage.getItem('app-theme')
+        expect(theme).to.eq('light')
+      })
+      
+      // Reload the page
+      cy.reload()
+      
+      // Verify theme persists after reload
+      cy.get('div.theme-light').should('exist')
+      cy.get('div.theme-dark').should('not.exist')
+      
+      // Switch back to dark theme
+      cy.get('button.theme-toggle').click()
+      cy.get('div.theme-dark').should('exist')
+      cy.get('div.theme-light').should('not.exist')
+      
+      // Verify localStorage was updated
+      cy.window().then((win) => {
+        expect(win.localStorage.getItem('app-theme')).to.eq('dark')
+      })
+    })
+  })
+
+  describe('Theme-based UI Elements', () => {
+    it('should maintain proper structure in both themes', () => {
+      // Check structure in dark theme
+      cy.get('div.theme-dark').within(() => {
+        cy.get('form').should('be.visible')
+        cy.get('input').should('have.length.at.least', 2)
+        cy.get('button').should('have.length.at.least', 2)
+      })
+      
+      // Switch to light theme
+      cy.get('button.theme-toggle').click()
+      
+      // Check same structure in light theme
+      cy.get('div.theme-light').within(() => {
+        cy.get('form').should('be.visible')
+        cy.get('input').should('have.length.at.least', 2)
+        cy.get('button').should('have.length.at.least', 2)
+      })
     })
   })
 })

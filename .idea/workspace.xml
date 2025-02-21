@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="9dd113b2-b601-48e9-a0a6-b6058ceb6292" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli-frontend/cypress.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/cli-frontend/cypress.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli-frontend/cypress/e2e/records-manager/basic.cy.js" beforeDir="false" afterPath="$PROJECT_DIR$/cli-frontend/cypress/e2e/records-manager/basic.cy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli-frontend/cypress/support/commands.js" beforeDir="false" afterPath="$PROJECT_DIR$/cli-frontend/cypress/support/commands.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-fixtures/s1-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/test-fixtures/s1-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-fixtures/s1-frontend/src/client/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/test-fixtures/s1-frontend/src/client/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-fixtures/s1-frontend/src/client/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/test-fixtures/s1-frontend/src/client/main.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,30 +65,30 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript Debug.index.html.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "hermit_enabled": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/dshapiro/Experiments/wild-goose-case",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.38501972",
-    "ts.external.directory.path": "/Users/dshapiro/Experiments/wild-goose-case/cli-frontend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;hermit_enabled&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dshapiro/Experiments/wild-goose-case&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.38501972&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/dshapiro/Experiments/wild-goose-case/cli-frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -136,7 +142,8 @@
       <workItem from="1740144124368" duration="1975000" />
       <workItem from="1740146110271" duration="56000" />
       <workItem from="1740146170936" duration="214000" />
-      <workItem from="1740146389763" duration="10053000" />
+      <workItem from="1740146389763" duration="17146000" />
+      <workItem from="1740180095283" duration="223000" />
     </task>
     <servers />
   </component>

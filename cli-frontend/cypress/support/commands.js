@@ -1,19 +1,37 @@
-// Custom commands for interacting with the Records Manager fixture mesh
-Cypress.Commands.add('verifyFixtureMeshHealth', () => {
-  // Add logic to verify all services are up and running
-  cy.request('http://localhost:3000/health').its('status').should('eq', 200)
-  // Add more health checks for other services as needed
+// ***********************************************
+// This example commands.js shows you how to
+// create various custom commands and overwrite
+// existing commands.
+//
+// For more comprehensive examples of custom
+// commands please read more here:
+// https://on.cypress.io/custom-commands
+// ***********************************************
+
+const storedValues = {}
+
+Cypress.Commands.add('preserveLocalStorage', () => {
+  Cypress.on('window:before:load', (win) => {
+    // Restore all items from storage
+    Object.keys(storedValues).forEach(key => {
+      win.localStorage.setItem(key, storedValues[key])
+    })
+  })
 })
 
-// Add more custom commands as needed for common operations
-Cypress.Commands.add('waitForRecordsLoad', () => {
-  // Add logic to wait for records to load
-  // This is a placeholder - implement based on your actual UI
-  cy.get('[data-testid="records-list"]').should('exist')
+Cypress.Commands.add('setLocalStorage', (key, value) => {
+  cy.window().then((win) => {
+    win.localStorage.setItem(key, value)
+    storedValues[key] = value
+  })
 })
 
-// Example command for cleaning up test data
-Cypress.Commands.add('cleanupTestData', () => {
-  // Add logic to clean up any test data created during tests
-  // This might involve direct API calls to your s3-data service
+Cypress.Commands.add('getLocalStorage', (key) => {
+  cy.window().then((win) => {
+    return win.localStorage.getItem(key)
+  })
+})
+
+beforeEach(() => {
+  cy.preserveLocalStorage()
 })
