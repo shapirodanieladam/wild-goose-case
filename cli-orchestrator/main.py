@@ -11,11 +11,11 @@ def cli():
 def generate(service):
     """Generate tests for selected services."""
     if service in ['frontend', 'all']:
-        click.echo('🔧 Generating frontend tests using Cypress (TypeScript)...')
-        subprocess.run(['node', './frontend-tester/smart-cli.js'])
+        click.echo('🔧 Generating frontend tests...')
+        subprocess.run(['node', './frontend-tester/index.ts'])
 
     if service in ['backend', 'all']:
-        click.echo('🔧 Generating backend tests using Kotlin...')
+        click.echo('🔧 Generating backend tests...')
         subprocess.run(['./backend-tester/build/backend-cli'])
 
     click.echo('✅ Test generation complete.')
