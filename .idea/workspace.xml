@@ -5,25 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dd113b2-b601-48e9-a0a6-b6058ceb6292" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/.deno-2.2.0.pkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/build-all" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/deno" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli-frontend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli-frontend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli-frontend/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli-orchestrator/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli-orchestrator/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli-orchestrator/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cli-orchestrator/test_interpreter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/demo" beforeDir="false" afterPath="$PROJECT_DIR$/bin/demo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin-cli/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/cli-backend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin-cli/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/cli-backend/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin-cli/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin-cli/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin-cli/src/main/kotlin/com/wildgoose/cli/Demo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/cli-backend/src/main/kotlin/com/wildgoose/cli/Demo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/build-all" beforeDir="false" afterPath="$PROJECT_DIR$/bin/build-all" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/cli-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli-frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/cli-frontend/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +223,7 @@
       <workItem from="1740142073117" duration="565000" />
       <workItem from="1740142728664" duration="568000" />
       <workItem from="1740143308755" duration="804000" />
-      <workItem from="1740144124368" duration="594000" />
+      <workItem from="1740144124368" duration="1323000" />
     </task>
     <servers />
   </component>

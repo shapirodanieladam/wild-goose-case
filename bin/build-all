@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Exit on error
+set -e
+
+# Function to prompt for confirmation
+prompt_continue() {
+    echo
+    echo "$1"
+    read -p "Press Enter once completed to continue..."
+    echo
+}
+
 echo "Building all projects..."
 
 # Build Kotlin backend
@@ -8,6 +19,9 @@ cd cli-backend
 gradle build
 cd ..
 
+# Prompt to turn off VPN for npm access
+prompt_continue "Turn off WARP (to access external npm)"
+
 # Build TypeScript frontend
 echo "Building TypeScript frontend..."
 cd cli-frontend
@@ -15,12 +29,30 @@ npm install
 npm run build
 cd ..
 
+# Prompt to turn VPN back on for internal PyPi
+prompt_continue "Turn WARP back on (to access Block's internal PyPi artifactory...)"
+
 # Build Python orchestrator
 echo "Building Python orchestrator..."
 cd cli-orchestrator
+
+# Remove existing venv if it exists
+if [ -d "venv" ]; then
+    echo "Removing existing virtual environment..."
+    rm -rf venv
+fi
+
+# Create new virtual environment with proper permissions
+echo "Creating new virtual environment..."
 python3 -m venv venv
+chmod -R u+rwx venv/bin/activate*
+
+# Activate virtual environment and install dependencies
+echo "Installing Python dependencies..."
 source venv/bin/activate
+pip install --upgrade pip
 pip install -r requirements.txt
+deactivate
 cd ..
 
 echo "Build complete!"
