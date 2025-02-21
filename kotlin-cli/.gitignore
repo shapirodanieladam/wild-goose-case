@@ -1,6 +1,6 @@
 .DS_Store
 .idea
-.kotlin
+kotlin-cli/.kotlin
 .gradle
 build
 

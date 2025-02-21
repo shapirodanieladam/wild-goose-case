@@ -1,1 +1,1 @@
-java -jar ./build/libs/wild-goose-cli-0.1.0-SNAPSHOT.jar "$@"
+java -jar ./kotlin-cli/build/libs/wild-goose-cli-0.1.0-SNAPSHOT.jar "$@"
